@@ -1,0 +1,41 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 66px;
+    background-color: rgb(22, 22, 22);
+    color: white;
+    font-size: larger;
+}
+
+.navbar{
+    margin-bottom: 10px;
+    font-size: x-large;
+}
+
+.logo img{
+    height: 56px;
+    width: auto;
+}
+
+.container{
+    width: 60vw;
+    margin: auto;
+    margin-top: 20px;
+}
+
+ul{
+    list-style-type: square;
+    color: rgb(22, 22, 22);
+}
+
+.heading{
+    font-size: large;
+    font-weight: bold;
+
+}

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Android Cheat Sheet</title>
+    <link rel="shortcut icon" href="./android_logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="prism.css">
+    <script src="prism.js"></script>
+</head>
+
+<body>
+
+    <!-- emmet code for repeating List Item
+       li>splan.heading+pre>code.language-java 
+    -->
+
+    <nav>
+        <span class="logo"><img src="./android_logo.png" alt="logo"></span>
+        <div class="navbar center">
+            Android Cheat Sheet
+        </div>
+    </nav>
+    <div class="container">
+
+        <ul>
+            
+            <li>
+                <span class="heading"> Custom Dialog</span>
+                <pre>
+<code class="language-java">
+Dialog dialog=new Dialog(this);
+dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+dialog.setContentView(R.layout.custom_dialog_layout);
+dialog.show();</code>
+                    </pre>
+                    
+                </li>
+
+
+            <li>
+                <span class="heading"> Custom Dialog With Layout params</span>
+                <pre>
+<code class="language-java">
+Dialog dialog=new Dialog(this);
+dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+dialog.setContentView(R.layout.custom_dialog_layout);
+
+WindowManager.LayoutParams layoutParams= new WindowManager.LayoutParams();
+layoutParams.copyFrom(dialog.getWindow().getAttributes());
+layoutParams.width= WindowManager.LayoutParams.MATCH_PARENT;
+layoutParams.height= WindowManager.LayoutParams.WRAP_CONTENT;
+
+dialog.getWindow().setAttributes(layoutParams);
+dialog.show();</code>
+                    </pre>
+                    
+                </li>
+
+
+                <li>
+                    <splan class="heading">Generate Randome String</splan>
+                    <pre><code class="language-java">
+private String AlPHA_NUMARIC_STRING="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrestuvwxyz";
+
+private String getRandomString() {
+
+    StringBuilder builder= new StringBuilder();
+    int count= 4;
+    while(count-- !=0)
+    {
+        int character= (int) (Math.random() * AlPHA_NUMARIC_STRING.length());
+        builder.append(AlPHA_NUMARIC_STRING.charAt(character));
+    }
+    return builder.toString();
+}
+
+                    </code></pre>
+                </li>
+
+                <li>
+                    <splan class="heading">Initiate RecyclerView</splan>
+                    <pre><code class="language-java">
+RecyclerView mRecyclerView;
+RecyclerView.Adapter mAdapter;
+List mList = new ArrayList();
+RecyclerView.LayoutManager layoutManager;
+
+
+mRecyclerView=findViewById(R.id.agreement_recyclerView);
+
+layoutManager = new LinearLayoutManager(this);
+mRecyclerView.setLayoutManager(layoutManager);
+mRecyclerView.setHasFixedSize(true);
+
+mAdapter = new CustomListAdapter(mList, this, isTotalFundActivity);
+mRecyclerView.setAdapter(mAdapter);
+
+                    </code></pre>
+                </li>
+
+                <li>
+                    <splan class="heading">Shared Prefrences</splan>
+                    <pre><code class="language-java">
+SharedPreferences preferences;
+String uname;
+
+preferences= getApplicationContext().getSharedPreferences(SHARED_PREF_NAME, MODE_PRIVATE);
+uname = preferences.getString("username", "");
+
+                    </code></pre>
+                </li> 
+
+                <li>
+                    <splan class="heading">Shared Prefrences Editor</splan>
+                    <pre><code class="language-java">
+SharedPreferences preferences;
+SharedPreferences.Editor editor;
+
+preferences= getApplicationContext().getSharedPreferences(SHARED_PREF_NAME, MODE_PRIVATE);
+editor = preferences.edit();
+editor.putString("username", USER_NAME);
+editor.commit();
+
+                    </code></pre>
+                </li> 
+
+                <li>
+                    <splan class="heading">Check Network Status</splan>
+                    <pre><code class="language-java">
+
+public static boolean isNetworkAvailable(Context context) {
+    ConnectivityManager connectivity = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+    if (connectivity == null) {
+        return false;
+    } else {
+        NetworkInfo[] info = connectivity.getAllNetworkInfo();
+        if (info != null) {
+            for (int i = 0; i &lt; info.length; i++) {
+                if (info[i].getState() == NetworkInfo.State.CONNECTED) {
+                    return true;
+                }
+            }
+        }
+    }
+    return false;
+}
+                    </code></pre>
+                </li> 
+
+
+                <li>
+                    <splan class="heading">Splash Screen Thread</splan>
+                    <pre><code class="language-java">
+Thread timerThread = new Thread(){
+    public void run(){
+        try{
+            sleep(SPLASH_DISPLAY_LENGTH);
+        }catch(InterruptedException e){
+            e.printStackTrace();
+        }finally{
+
+                //Do Something
+                startActivity(new Intent(Splash.this, MainActivity.class));
+
+        }
+    }
+};
+timerThread.start();
+                    </code></pre>
+                </li> 
+
+
+
+        </ol>
+
+
+    </div>
+</body>
+
+</html>
