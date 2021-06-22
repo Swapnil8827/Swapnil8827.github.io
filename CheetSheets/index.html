@@ -172,6 +172,14 @@ timerThread.start();
                     </code></pre>
                 </li> 
 
+            <li>
+                    <splan class="heading">Volley Retry Policy [setRetryPolicy()]</splan>
+                    <pre><code class="language-java">
+request.setRetryPolicy(new DefaultRetryPolicy(TIME_IN_MILLIS,
+DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+                    </code></pre>
+                </li>
 
 
         </ol>
