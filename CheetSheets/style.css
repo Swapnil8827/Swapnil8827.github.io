@@ -37,7 +37,10 @@ ul{
 .heading{
     font-size: large;
     font-weight: bold;
+}
 
+.language-java{
+    max-height: 60vh;
 }
 
 @media only screen and (max-width: 600px)
