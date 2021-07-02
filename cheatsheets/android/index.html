@@ -268,6 +268,16 @@ if (grantResults.length > 0
 }
                     </code></pre>
                 </li> 
+                
+                <li>
+                    <splan class="heading">Copy Text To Clipboard</splan>
+                    <pre><code class="language-java">
+ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+ClipData clip = ClipData.newPlainText("crypto_address", "TU6GNoGZh1KUMbwdMJtoTxRb3wT6J2oJiS");
+clipboard.setPrimaryClip(clip);
+Toast.makeText(getApplicationContext(), "copied!", Toast.LENGTH_LONG).show();
+                    </code></pre>
+                </li>
 
 
 
